@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Montage</title>
+  <title>🌀Ari🌀</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -37,15 +37,27 @@
 </head>
 <body>
   <div class="container">
-    <h1>For My Friend</h1>
+    <h1>🌀La mulți ani, Ari!🌀</h1>
     <div class="intro">
-      <p>Write whatever text you want here — a short message, instructions, a dedication, or anything you want your friend to see before the video starts.</p>
+      <p>WIP</p>
     </div>
 
-    <video controls>
-      <source src="https://github.com/bonceaserbanandrei/Ari/releases/download/v1/Ari.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <video id="video" controls width="100%"></video>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+      var video = document.getElementById('video');
+      var videoSrc = 'hls/index.m3u8';
+    
+      if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Safari (iOS/macOS)
+        video.src = videoSrc;
+      } else if (Hls.isSupported()) {
+        // Other browsers
+        var hls = new Hls();
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+      }
+    </script>
   </div>
 </body>
 </html>
