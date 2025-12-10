@@ -63,41 +63,6 @@
         hls.attachMedia(video);
       }
     </script>
-    <h2 style="text-align:center; margin-top:40px;">🐉 Dragon Walk Game</h2>
-    <div id="game-container" style="position:relative; width:100%; height:200px; background:#e0f7fa; border-radius:10px; overflow:hidden; margin-top:10px;">
-      <div id="dragon" style="position:absolute; top:70px; left:0; font-size:50px;">🐉</div>
-    </div>
-    
-    <script>
-      const dragon = document.getElementById('dragon');
-      const container = document.getElementById('game-container');
-    
-      let posX = 0;
-      let posY = 70; // vertical position fixed
-      const step = 10; // movement speed
-    
-      document.addEventListener('keydown', (e) => {
-        const containerWidth = container.offsetWidth - dragon.offsetWidth;
-        const containerHeight = container.offsetHeight - dragon.offsetHeight;
-    
-        switch(e.key) {
-          case 'ArrowRight':
-            posX = Math.min(posX + step, containerWidth);
-            break;
-          case 'ArrowLeft':
-            posX = Math.max(posX - step, 0);
-            break;
-          case 'ArrowUp':
-            posY = Math.max(posY - step, 0);
-            break;
-          case 'ArrowDown':
-            posY = Math.min(posY + step, containerHeight);
-            break;
-        }
-        dragon.style.left = posX + 'px';
-        dragon.style.top = posY + 'px';
-      });
-    </script>
   </div>
 </body>
 </html>
